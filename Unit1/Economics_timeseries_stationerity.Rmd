@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+library(ggplot2)
+head(economics)
+```
+
+```{r, clean}
+
+# Basic line plot
+ggplot(data = economics, aes(x = date, y = unemploy))+
+  geom_line(color = "#00AFBB", size = 2)
+# Plot a subset of the data
+ss <- subset(economics, date > as.Date("2006-1-1"))
+ggplot(data = ss, aes(x = date, y = pop)) + 
+  geom_line(color = "#FC4E07", size = 2)
+
+```
+
+
+```{r, summary}
+
+summary(economics)
+nrow(economics)
+```
+
+```{r, head}
+
+head(economics)
+```
+
+
+
+```{r, acf}
+acf(economics$unemploy, lag.max = 500)
+```
